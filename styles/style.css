@@ -10,4 +10,29 @@
 
 .btn-primary{
   width: 20%;
+  height: 100px;
+}
+
+#button-1{
+  background-color: #ff0000;
+}
+
+#button-2{
+  background-color: #7f6000;
+}
+
+#button-3{
+  background-color: #385723;
+}
+
+#button-4{
+  background-color: #ffff00;
+}
+
+#button-5{
+  background-color: #002f8e;
+}
+
+#button-6{
+  background-color: #7030a0;
 }

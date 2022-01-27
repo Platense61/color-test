@@ -1,3 +1,4 @@
+var select = 1;
 // Simple example, see optional options for more configuration.
 const pickr = Pickr.create({
     el: '.color-picker',
@@ -40,3 +41,66 @@ const pickr = Pickr.create({
         }
     }
 });
+
+function changeColor(x) {
+  if (x == '1'){
+    select = 1;
+    console.log(select);
+  }
+  else if (x == '2'){
+    select = 2;
+    console.log(select);
+  }
+  else if (x == '3'){
+    select = 3;
+    console.log(select);
+  }
+  else if (x == '4'){
+    select = 4;
+    console.log(select);
+  }
+  else if (x == '5'){
+    select = 5;
+    console.log(select);
+  }
+  else if (x == '6'){
+    select = 6;
+    console.log(select);
+  }
+
+}
+
+pickr.on('change', (color, source, instance) => {
+    console.log(color.toRGBA());
+    const rgbaColor = color.toRGBA().toString();
+    console.log(rgbaColor);
+    if (select == 1) {
+      document.getElementById("button-1").style.background = rgbaColor;
+      console.log('select');
+    }
+
+    else if (select == 2) {
+      document.getElementById("button-2").style.backgroundColor = rgbaColor;
+      console.log(select);
+    }
+
+    else if (select == 3) {
+      document.getElementById("button-3").style.background = rgbaColor;
+      console.log(select);
+    }
+
+    else if (select == 4) {
+      document.getElementById("button-4").style.background = rgbaColor;
+      console.log(select);
+    }
+
+    else if (select == 5) {
+      document.getElementById("button-5").style.background = rgbaColor;
+      console.log(select);
+    }
+
+    else if (select == 6) {
+      document.getElementById("button-6").style.background = rgbaColor;
+      console.log(select);
+    }
+})
