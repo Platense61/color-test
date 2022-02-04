@@ -3,14 +3,22 @@
   width: 100px;
   height: 100px;
 }
+html,body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
 
-.container{
-  margin-top: 200px;
+
+.col-lg{
+  background-color: #002f8e;
+  padding: 1rem;
+  color: white;
 }
 
 .btn-primary{
-  width: 20%;
   height: 100px;
+  margin-right: .5rem;
 }
 
 #button-1{
