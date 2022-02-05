@@ -45,27 +45,21 @@ const pickr = Pickr.create({
 function changeColor(x) {
   if (x == '1'){
     select = 1;
-    console.log(select);
   }
   else if (x == '2'){
     select = 2;
-    console.log(select);
   }
   else if (x == '3'){
     select = 3;
-    console.log(select);
   }
   else if (x == '4'){
     select = 4;
-    console.log(select);
   }
   else if (x == '5'){
     select = 5;
-    console.log(select);
   }
   else if (x == '6'){
     select = 6;
-    console.log(select);
   }
 
 }
