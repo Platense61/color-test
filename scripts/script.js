@@ -104,3 +104,28 @@ pickr.on('change', (color, source, instance) => {
       console.log(select);
     }
 })
+
+//timeout for counting timer
+// setTimeout(function, 1000);
+var x = true;
+var start;
+const btns = document.querySelectorAll('button[id^=button-]')
+
+btns.forEach(btn => {
+
+   btn.addEventListener('click', event => {
+     console.log(x);
+    if(x){
+      start = new Date();
+      x = false;
+    }
+    else{
+      var elapsed = new Date() - start;
+      console.log(elapsed);
+      x = true;
+  
+    }
+   });
+
+});
+
