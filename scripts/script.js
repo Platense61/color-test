@@ -110,18 +110,18 @@ btns.forEach(btn => {
 });
 
 function timer(e) {
-  console.log(x);
   if(x){
     start = new Date();
     x = false;
   }
   else{
     var elapsed = new Date() - start;
-    console.log(elapsed);
     x = true;
       
     recordData(elapsed, e.target.id);
   }
+  console.log(x);
+
 }
 
 //figure out how we're logging the 'current stop' to get if it's correct or not
@@ -169,7 +169,14 @@ function presets(x){
 
   }
   else if(x == 2){
-    document.getElementById("preset1")
+    document.getElementById("button-1").style.backgroundColor = "#a4487e";
+    document.getElementById("button-2").style.backgroundColor = "#218B21"; //Should be what protan precieves brown. Green for normal vision
+    document.getElementById("button-3").style.backgroundColor = "#f6da00";
+    document.getElementById("button-4").style.backgroundColor = "#fff5d2";
+    // document.getElementById("button-5").style.backgroundColor = "#218B21";
+    // document.getElementById("button-6").style.backgroundColor = "#218B21";
+    console.log("STRONG PROTAN SET 1 HAS NOW BEEN SELECTED");
+    x = true; //reset flag for recording time
   }
   else{
 
