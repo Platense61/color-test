@@ -106,22 +106,46 @@ var start;
 const btns = document.querySelectorAll('button[id^=button-]')
 
 btns.forEach(btn => {
-
-   btn.addEventListener('click', event => {
-     console.log(x);
-    if(x){
-      start = new Date();
-      x = false;
-    }
-    else{
-      var elapsed = new Date() - start;
-      console.log(elapsed);
-      x = true;
-  
-    }
-   });
-
+   btn.addEventListener('click', timer);
 });
+
+function timer(e) {
+  console.log(x);
+  if(x){
+    start = new Date();
+    x = false;
+  }
+  else{
+    var elapsed = new Date() - start;
+    console.log(elapsed);
+    x = true;
+      
+    recordData(elapsed, e.target.id);
+  }
+}
+
+//figure out how we're logging the 'current stop' to get if it's correct or not
+function recordData(elapsed, id) {
+  var output = '';
+  var correct_bool = 'TBD';
+  var correct_btn = 'TBD';
+
+  output += 'time: ' + elapsed;
+  output +=  ' correct: ' + correct_bool;
+  output += ' btn_clicked: ' + id;
+  output += ' btn_correct: ' + correct_btn;
+  output += ' color_arr: ' + getColors();
+
+  console.log(output);
+}
+
+function getColors() {
+  var arr = [];
+
+  for(var i = 0; i < btns.length; i++) {
+    var color = window.getComputedStyle(btns[i]);
+    arr.push(color.getPropertyValue('background-color'));
+  }
 
 function presets(x){
   if(x == 1){
@@ -149,3 +173,5 @@ function presets(x){
   }
 }
 
+  return arr;
+}
