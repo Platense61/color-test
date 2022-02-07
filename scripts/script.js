@@ -211,11 +211,11 @@ function presets(x){
     document.getElementById("button-5").style.backgroundColor = "#002f8e";
     //change back to original brown
     document.getElementById("button-6").style.backgroundColor = "#7030a0";
-    console.log("DEFAUlT COLORS HAVE NOW BEEN SELECTED");
+    //console.log("DEFAUlT COLORS HAVE NOW BEEN SELECTED");
     //x = true;
 
   }
-  else if(x == 2){
+  else if(x == 2 || x == 3){
     document.getElementById("button-1").style.backgroundColor = "#a4487e";
     document.getElementById("button-2").style.backgroundColor = "#218B21"; //Should be what protan precieves brown. Green for normal vision
     document.getElementById("button-3").style.backgroundColor = "#f6da00";
@@ -228,6 +228,11 @@ function presets(x){
   else{
 
   }
+  setTimeout(function(){ 
+    console.log('presetchangerd');
+    color_arr = getColors();
+    setBusStop();
+  }, 300);
 }
 
 initPage();
