@@ -101,10 +101,11 @@ pickr.on('change', (color, source, instance) => {
 
 //timeout for counting timer
 // setTimeout(function, 1000);
-var x = true;
+//var x = true;
 var start; // timer starts as soon as page is loaded and is refreshed every button click
 const btns = document.querySelectorAll('button[id^=button-]');
 var color_arr = [];
+var curr_stop = document.getElementById('current_stop');
 var prev_btn_color;
 var curr_btn_color;
 
@@ -112,7 +113,7 @@ var curr_btn_color;
 function initPage() {
   btns.forEach(btn => {
     btn.addEventListener('click', timer);
- });
+  });
 
  color_arr = getColors();
  setBusStop();
@@ -121,9 +122,9 @@ function initPage() {
 // stops the timer, calls outputting function, starts timer and refreshes color
 function timer(e) {
   var elapsed = new Date() - start;
-  x = true;     
+  //x = true;     
   recordData(elapsed, e.target.id);
-  console.log(x);
+  //console.log(x);
   setBusStop();
 }
 
@@ -132,31 +133,32 @@ function timer(e) {
 function setBusStop() {
   var rand = Math.floor(Math.random() * 6);
   start = new Date();
-  x = false;
+  //x = false;
   prev_btn_color = curr_btn_color;
   curr_btn_color = color_arr[rand];
 
   while(curr_btn_color == prev_btn_color) {
     rand = Math.floor(Math.random() * 6);
     curr_btn_color = color_arr[rand]; 
-    console.log('current color to pick: ' + curr_btn_color);
+    //console.log('current color to pick: ' + curr_btn_color);
   }
-  console.log('current color to pick: ' + curr_btn_color);
-  console.log('rand: ' + rand);
+  //console.log('current color to pick: ' + curr_btn_color);
+  //console.log('rand: ' + rand);
+  curr_stop.style.backgroundColor = curr_btn_color;
 }
 
 // prints important data structures to the console
 function recordData(elapsed, id) {
-  console.log(id + typeof(id));
+  //console.log(id + typeof(id));
   var output = '';
   var correct_bool = calcCorrectStop(id);
-  var correct_btn = colorToBtn(curr_btn_color);
+  var correct_btn = colorToBtn(curr_btn_color) + 1;
 
   output += 'time: ' + elapsed;
-  output +=  ' correct: ' + correct_bool;
-  output += ' btn_clicked: ' + id;
-  output += ' btn_correct: ' + correct_btn;
-  output += ' color_arr: ' + color_arr;
+  output += ', correct: ' + correct_bool;
+  output += ', btn_clicked: ' + id;
+  output += ', btn_correct: button-' + correct_btn;
+  output += ', color_arr: ' + color_arr;
 
   console.log(output);
 }
@@ -167,7 +169,7 @@ function getColors() {
   for(var i = 0; i < btns.length; i++) {
     var color = window.getComputedStyle(btns[i]).getPropertyValue('background-color');
     arr.push(color);
-    console.log('button ' + i + ' color: ' + color);
+    //console.log('button ' + i + ' color: ' + color);
   }
 
   return arr;
@@ -210,7 +212,7 @@ function presets(x){
     //change back to original brown
     document.getElementById("button-6").style.backgroundColor = "#7030a0";
     console.log("DEFAUlT COLORS HAVE NOW BEEN SELECTED");
-    x = true;
+    //x = true;
 
   }
   else if(x == 2){
@@ -220,8 +222,8 @@ function presets(x){
     document.getElementById("button-4").style.backgroundColor = "#fff5d2";
     // document.getElementById("button-5").style.backgroundColor = "#218B21";
     // document.getElementById("button-6").style.backgroundColor = "#218B21";
-    console.log("STRONG PROTAN SET 1 HAS NOW BEEN SELECTED");
-    x = true; //reset flag for recording time
+    //console.log("STRONG PROTAN SET 1 HAS NOW BEEN SELECTED");
+    //x = true; //reset flag for recording time
   }
   else{
 
