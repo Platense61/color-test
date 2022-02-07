@@ -146,6 +146,9 @@ function getColors() {
     var color = window.getComputedStyle(btns[i]);
     arr.push(color.getPropertyValue('background-color'));
   }
+  return arr;
+}
+
 
 function presets(x){
   if(x == 1){
@@ -171,7 +174,4 @@ function presets(x){
   else{
 
   }
-}
-
-  return arr;
 }
