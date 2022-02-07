@@ -52,9 +52,13 @@ html,body {
   background-color: #7030a0;
 }
 
-.mybtn{
-  width: 170px;
+.changer{
   margin-top: 70px;
   margin-left: 100px;
+}
+
+.mybtn{
+  width: 200px;
+
 }
 
