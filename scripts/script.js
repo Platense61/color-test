@@ -102,51 +102,96 @@ pickr.on('change', (color, source, instance) => {
 //timeout for counting timer
 // setTimeout(function, 1000);
 var x = true;
-var start;
-const btns = document.querySelectorAll('button[id^=button-]')
+var start; // timer starts as soon as page is loaded and is refreshed every button click
+const btns = document.querySelectorAll('button[id^=button-]');
+var color_arr = [];
+var prev_btn_color;
+var curr_btn_color;
 
-btns.forEach(btn => {
-   btn.addEventListener('click', timer);
-});
+// everything that needs to be initialized goes here
+function initPage() {
+  btns.forEach(btn => {
+    btn.addEventListener('click', timer);
+ });
 
-function timer(e) {
-  if(x){
-    start = new Date();
-    x = false;
-  }
-  else{
-    var elapsed = new Date() - start;
-    x = true;
-      
-    recordData(elapsed, e.target.id);
-  }
-  console.log(x);
-
+ color_arr = getColors();
+ setBusStop();
 }
 
-//figure out how we're logging the 'current stop' to get if it's correct or not
+// stops the timer, calls outputting function, starts timer and refreshes color
+function timer(e) {
+  var elapsed = new Date() - start;
+  x = true;     
+  recordData(elapsed, e.target.id);
+  console.log(x);
+  setBusStop();
+}
+
+// sets the 'correct color' to a random color from one of the 6 buttons
+// starts the timer
+function setBusStop() {
+  var rand = Math.floor(Math.random() * 6);
+  start = new Date();
+  x = false;
+  prev_btn_color = curr_btn_color;
+  curr_btn_color = color_arr[rand];
+
+  while(curr_btn_color == prev_btn_color) {
+    rand = Math.floor(Math.random() * 6);
+    curr_btn_color = color_arr[rand]; 
+    console.log('current color to pick: ' + curr_btn_color);
+  }
+  console.log('current color to pick: ' + curr_btn_color);
+  console.log('rand: ' + rand);
+}
+
+// prints important data structures to the console
 function recordData(elapsed, id) {
+  console.log(id + typeof(id));
   var output = '';
-  var correct_bool = 'TBD';
-  var correct_btn = 'TBD';
+  var correct_bool = calcCorrectStop(id);
+  var correct_btn = colorToBtn(curr_btn_color);
 
   output += 'time: ' + elapsed;
   output +=  ' correct: ' + correct_bool;
   output += ' btn_clicked: ' + id;
   output += ' btn_correct: ' + correct_btn;
-  output += ' color_arr: ' + getColors();
+  output += ' color_arr: ' + color_arr;
 
   console.log(output);
 }
 
+// updates the color array based off what colors are displayed
 function getColors() {
   var arr = [];
-
   for(var i = 0; i < btns.length; i++) {
-    var color = window.getComputedStyle(btns[i]);
-    arr.push(color.getPropertyValue('background-color'));
+    var color = window.getComputedStyle(btns[i]).getPropertyValue('background-color');
+    arr.push(color);
+    console.log('button ' + i + ' color: ' + color);
   }
+
   return arr;
+}
+
+// returns whether the correct button was clicked or not
+function calcCorrectStop(id) {
+  var btn_color = window.getComputedStyle(document.getElementById(id)).getPropertyValue('background-color');
+  if(btn_color == curr_btn_color) {
+    return true;
+  }
+  return false;
+}
+
+// returns the index of the button that is displaying color 'rgb'
+// returns -1 otherwise
+function colorToBtn(rgb) {
+  for(var i = 0; i < btns.length; i++) {
+    var btn_color = window.getComputedStyle(btns[i]).getPropertyValue('background-color');
+    if(rgb == btn_color) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 
@@ -182,3 +227,5 @@ function presets(x){
 
   }
 }
+
+initPage();
