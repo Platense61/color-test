@@ -123,3 +123,29 @@ btns.forEach(btn => {
 
 });
 
+function presets(x){
+  if(x == 1){
+    //change back to original red
+    document.getElementById("button-1").style.backgroundColor = "#ff0000";
+    //change back to original brown
+    document.getElementById("button-2").style.backgroundColor = "#7f6000";
+    //change back to original brown
+    document.getElementById("button-3").style.backgroundColor = "#385723";
+    //change back to original brown
+    document.getElementById("button-4").style.backgroundColor = "#ffff00";
+    //change back to original brown
+    document.getElementById("button-5").style.backgroundColor = "#002f8e";
+    //change back to original brown
+    document.getElementById("button-6").style.backgroundColor = "#7030a0";
+    console.log("DEFAUlT COLORS HAVE NOW BEEN SELECTED");
+    x = true;
+
+  }
+  else if(x == 2){
+    document.getElementById("preset1")
+  }
+  else{
+
+  }
+}
+

@@ -10,29 +10,16 @@
   </head>
   <body>
 
+    <!-- NAV BAR -->
     <nav class="navbar navbar-light bg-light">
       <form class="container-fluid justify-content-around">
-        <button class="btn btn-outline-success me-2" type="button">Preset 1</button>
-        <button class="btn btn-outline-success me-2" type="button">Preset 2</button>
-        <button class="btn btn-outline-success me-2" type="button">Preset 3</button>
+        <button class="btn btn-outline-success me-2" id="default" onclick="presets(1)" type="button">Default</button>
+        <button class="btn btn-outline-success me-2" id="preset1" onclick="presets(2)" type="button">Preset 1</button>
+        <button class="btn btn-outline-success me-2" id="preset2" onclick="presets(3)" type="button">Preset 2</button>
       </form>
     </nav>
 
-    <!-- <div class="container position-absolute top-0 start-50 translate-middle d-flex flex-column justify-content-center">
-      <div class="btn-group-lg pt-5 w-100 d-flex flex-row justify-content-center m-4" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary rounded-0 pr-4" id="button-1" onclick="changeColor('1')"></button>
-        <button type="button" class="btn btn-primary rounded-0" id="button-2" onclick="changeColor('2')"></button>
-        <button type="button" class="btn btn-primary" id="button-3" onclick="changeColor('3')"></button>
-        <button type="button" class="btn btn-primary" id="button-4" onclick="changeColor('4')"></button>
-        <button type="button" class="btn btn-primary" id="button-5" onclick="changeColor('5')"></button>
-        <button type="button" class="btn btn-primary" id="button-6" onclick="changeColor('6')"></button>
-      </div>
-      <div class="d-flex flex-column">
-        <p>hey</p>
-        <p>heyyy 2</p>
-      </div>
-    </div> -->
-
+      <!-- Buttons -->
     <div class="container position-absolute top-50 start-50 translate-middle">
       <div class="row">
         <div class="col-lg-2"><button type="button" class="btn btn-primary w-100 rounded-0 pr-4" id="button-1" onclick="changeColor('1')"></button></div>
