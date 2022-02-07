@@ -30,12 +30,16 @@
         <div class="col-lg-2"><button type="button" class="btn btn-primary w-100" id="button-6" onclick="changeColor('6')"></button></div>
       </div>
 
-      <div class="row d-flex flex-column pt-5">
-        <div class="col-6 p-3 d-flex justify-content-center"><b>Expected Arrival:</b> <p class="ps-4" id="arrivalTime"></p></div>
-        <div class="col-6 p-3 d-flex justify-content-center"><b>Actual Arrival:</b> <p class="ps-4" id="actualArrival"></p></div>
-        <div class="col-6 p-3 d-flex justify-content-center"><b>Delay:</b> <p class="ps-5" id="delay"></p></div>
+      <div class="row pt-5">
+        <div class="col-12 p-3 d-flex justify-content-start"><b>Expected Arrival:</b> <p class="ps-4" id="arrivalTime"></p></div>
+        <div class="col-6 p-3 d-flex justify-content-start"><b>Actual Arrival:</b> <p class="ps-4" id="actualArrival"></p></div>
+        <!-- <div class="col-6 p-3 d-flex justify-content-center"><div class="col-lg-2"><button type="button" class="btn btn-primary w-100" id="button-6" onclick="changeColor('6')"></button></div></div> -->
+        <div class="col-12 p-3 d-flex justify-content-start"><b>Delay:</b> <p class="ps-5" id="delay"></p></div>
       </div>
     </div>
+
+    <!-- The following button is the one that displays the color he is suppose to match, it is the button not in the row of 6 colored buttons -->
+    <button type="button" class="btn btn-primary mybtn position-absolute top-50 start-50 translate-middle" id="button-6"></button>
 
     <div class="pickr-container d-flex flex-row justify-content-center">
 

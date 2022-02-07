@@ -44,3 +44,9 @@ html,body {
 #button-6{
   background-color: #7030a0;
 }
+
+.mybtn{
+  width: 170px;
+  margin-top: 70px;
+  margin-left: 100px;
+}
