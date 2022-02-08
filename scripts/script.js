@@ -109,6 +109,10 @@ var curr_stop = document.getElementById('current_stop');
 var prev_btn_color;
 var curr_btn_color;
 
+function rgbToHex(rgb) {
+  return '#' + rgb.match(/[0-9|.]+/g).map((x,i) => i === 3 ? parseInt(255 * parseFloat(x)).toString(16) : parseInt(x).toString(16)).join('')
+}
+
 // everything that needs to be initialized goes here
 function initPage() {
   btns.forEach(btn => {
@@ -220,7 +224,7 @@ function presets(x){
     document.getElementById("button-2").style.backgroundColor = "#218B21"; //Should be what protan precieves brown. Green for normal vision
     document.getElementById("button-3").style.backgroundColor = "#f6da00";
     document.getElementById("button-4").style.backgroundColor = "#fff5d2";
-    // document.getElementById("button-5").style.backgroundColor = "#218B21";
+    document.getElementById("button-5").style.backgroundColor = "#00bbff";
     // document.getElementById("button-6").style.backgroundColor = "#218B21";
     //console.log("STRONG PROTAN SET 1 HAS NOW BEEN SELECTED");
     //x = true; //reset flag for recording time
