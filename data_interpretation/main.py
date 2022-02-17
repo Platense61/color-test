@@ -4,7 +4,6 @@
 # TODO: Make graphs in excel
 # TODO: Make basic structure for powerpoint 
 
-
 files = [
     open('data/in/sean_original.txt', 'r'),
     open('data/in/sean_modified.txt', 'r'),
@@ -74,8 +73,30 @@ def main():
 
         saveDict(file_num)
         # print('\n\noutput_dict for file ' + numToFile(file_num) + ':\n' + str(output_dict))
+        data = countCorrect(file_num)
+        print('\n' + numToFile(file_num) + ' total:' + str(data['total']))
+        print(numToFile(file_num) + ' number correct:' + str(data['correct']))
+        print(numToFile(file_num) + ' number incorrect:' + str(data['incorrect']))
         line_num = 1
         file_num += 1
+    
+
+def countCorrect(file_num):
+    data = {
+        'total':        0,
+        'correct':      0,
+        'incorrect':    0
+    }
+    file = numToFile(file_num)
+
+    for key in output_dict[file]:
+        value = output_dict[file][key]
+        if value['correct'] == True:
+            data['correct'] += 1
+        else:
+            data['incorrect'] += 1
+        data['total'] += 1
+    return data
 
 
 def updateDict(file, line_num, line_split):
